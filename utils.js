@@ -9,3 +9,9 @@ export const fetchAllReviews = () => {
     return data;
   });
 };
+
+export const fetchSingleReview = (review_id) => {
+  return instance.get(`/reviews/${review_id}`).then(({ data }) => {
+    return data;
+  });
+};
