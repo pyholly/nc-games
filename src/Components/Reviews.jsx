@@ -1,4 +1,15 @@
-export const Reviews = ({ allReviews }) => {
+import { useState, useEffect } from "react";
+import { fetchAllReviews } from "../../utils";
+
+export const Reviews = () => {
+  const [allReviews, setAllReviews] = useState([]);
+
+  useEffect(() => {
+    fetchAllReviews().then(({ reviews }) => {
+      setAllReviews(reviews);
+    });
+  }, []);
+
   return (
     <ul id="review-card">
       {allReviews.map((review) => {
