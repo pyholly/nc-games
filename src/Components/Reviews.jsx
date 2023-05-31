@@ -3,12 +3,18 @@ import { fetchAllReviews } from "../../utils";
 
 export const Reviews = () => {
   const [allReviews, setAllReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchAllReviews().then(({ reviews }) => {
       setAllReviews(reviews);
+      setIsLoading(false);
     });
   }, []);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <ul id="review-card">
