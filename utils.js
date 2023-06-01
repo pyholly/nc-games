@@ -15,3 +15,9 @@ export const fetchSingleReview = (review_id) => {
     return data;
   });
 };
+
+export const fetchComments = (review_id) => {
+  return instance.get(`/reviews/${review_id}/comments`).then(({ data }) => {
+    return data;
+  });
+};
