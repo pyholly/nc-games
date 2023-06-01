@@ -27,9 +27,10 @@ export const ReviewInfo = ({ review_id }) => {
       />
       <p className="review-body">{singleReview.review_body}</p>
       <p>Created by {singleReview.owner}</p>
-      <p>Votes: {singleReview.votes}</p>
-      <button className="btn">UpVote!</button>
-      <p>Category: {singleReview.category}</p>
+      <button className="btn">
+        <span className="heart-emoji">&hearts;</span> {singleReview.votes}
+      </button>
+      <p className="category"> Category: {singleReview.category}</p>
     </section>
   );
 };

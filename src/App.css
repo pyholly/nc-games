@@ -39,8 +39,9 @@ nav {
 /* reviews */
 
 .btn {
+  font-size: 1rem;
   margin: 10px;
-  padding: 5px;
+  padding: 0 8px;
 }
 
 .btn:hover {
@@ -64,6 +65,15 @@ nav {
 .review-body {
   margin: auto;
   width: 80%
+}
+
+.heart-emoji {
+  font-size: 1.3rem;
+  color: red;
+}
+
+.category {
+  font-size: 0.9rem;
 }
 
 /* comments */
