@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { ReviewInfo } from "./ReviewInfo";
 import { Comments } from "./Comments";
+import { useState, useEffect } from "react";
 
 export const SingleReview = () => {
   const { review_id } = useParams();

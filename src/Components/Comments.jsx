@@ -3,13 +3,18 @@ import { fetchComments } from "../../utils";
 
 export const Comments = ({ review_id }) => {
   const [comments, setComments] = useState([]);
+  const [isLoadingComments, setIsLoadingComments] = useState(true);
 
   useEffect(() => {
     fetchComments(review_id).then(({ comments }) => {
       setComments(comments);
+      setIsLoadingComments(false);
     });
   }, []);
 
+  if (isLoadingComments) {
+    return <p>Comments are Loading...</p>;
+  }
   return (
     <>
       <h2 className="title">Comments</h2>
