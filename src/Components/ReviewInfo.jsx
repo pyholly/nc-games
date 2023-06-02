@@ -18,7 +18,6 @@ export const ReviewInfo = ({ review_id }) => {
 
   return (
     <section id="review-info">
-      {console.log(singleReview)}
       <h2>{singleReview.title}</h2>
       <p>Game Master: {singleReview.designer}</p>
       <img
