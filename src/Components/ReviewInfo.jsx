@@ -55,7 +55,7 @@ export const ReviewInfo = ({ review_id }) => {
       />
       <p className="review-body">{singleReview.review_body}</p>
       <p>Created by {singleReview.owner}</p>
-      <button className="btn" onClick={handleClick}>
+      <button className="btn upvote-btn" onClick={handleClick}>
         {clicked ? (
           <span className="heart-emoji red-heart">&hearts;</span>
         ) : (

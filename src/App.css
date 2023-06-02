@@ -90,6 +90,15 @@ nav {
   color: rgb(238, 41, 41)
 }
 
+.upvote-btn {
+  background-color: rgb(39, 153, 219);
+  color: black
+}
+
+.upvote-btn:hover {
+  background-color: rgb(16, 97, 151);
+  color: white;
+}
 /* comments */
 
 .comment-card {
