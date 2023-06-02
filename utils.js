@@ -21,3 +21,13 @@ export const fetchComments = (review_id) => {
     return data;
   });
 };
+
+export const updateVotes = (review_id, clicked) => {
+  const votes = { inc_votes: 0 };
+  if (!clicked) {
+    votes.inc_votes = 1;
+  } else {
+    votes.inc_votes = -1;
+  }
+  return instance.patch(`/reviews/${review_id}`, votes);
+};

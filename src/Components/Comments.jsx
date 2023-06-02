@@ -6,19 +6,20 @@ export const Comments = ({ review_id }) => {
   const [isLoadingComments, setIsLoadingComments] = useState(true);
 
   useEffect(() => {
-    fetchComments(review_id).then(({ comments }) => {
-      setComments(comments);
-      setIsLoadingComments(false);
-    });
+    fetchComments(review_id)
+      .then(({ comments }) => {
+        setComments(comments);
+        setIsLoadingComments(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
-  if (isLoadingComments) {
-    return <p>Comments are Loading...</p>;
-  }
   return (
     <>
       <h2 className="title">Comments</h2>
-      {comments.length === 0 ? (
+      {isLoadingComments && comments.length === 0 ? (
         <p>No comments yet for this review!</p>
       ) : (
         <ul className="border">
