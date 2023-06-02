@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { fetchComments } from "../../utils";
+import { PostComment } from "./PostComment";
 
 export const Comments = ({ review_id }) => {
   const [comments, setComments] = useState([]);
   const [isLoadingComments, setIsLoadingComments] = useState(true);
+  const [newComment, setNewComment] = useState([]);
 
   useEffect(() => {
     fetchComments(review_id)
@@ -14,11 +16,16 @@ export const Comments = ({ review_id }) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [newComment]);
 
   return (
     <>
       <h2 className="title">Comments</h2>
+      <PostComment
+        review_id={review_id}
+        newComment={newComment}
+        setNewComment={setNewComment}
+      />
       {isLoadingComments && comments.length === 0 ? (
         <p>No comments yet for this review!</p>
       ) : (
