@@ -7,7 +7,6 @@ export const ReviewInfo = ({ review_id }) => {
   const [voteCount, setVoteCount] = useState(null);
   const [err, setErr] = useState(false);
   const [clicked, setClicked] = useState(false);
-  const click = 0;
 
   useEffect(() => {
     fetchSingleReview(review_id).then(({ review }) => {
@@ -27,15 +26,11 @@ export const ReviewInfo = ({ review_id }) => {
       setClicked(false);
     }
     updateVotes(review_id, clicked).catch((err) => {
-      if (!clicked) {
-        setVoteCount((currVotes) => {
-          currVotes - 1;
-        });
-      } else {
-        setVoteCount((currVotes) => {
-          currVotes + 1;
-        });
-      }
+      setClicked(false);
+      setVoteCount((currVotes) => {
+        currVotes - 1;
+      });
+
       setErr(true);
     });
   }
