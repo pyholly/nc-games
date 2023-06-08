@@ -31,3 +31,13 @@ export const updateVotes = (review_id, clicked) => {
   }
   return instance.patch(`/reviews/${review_id}`, votes);
 };
+
+export const postComment = (review_id, commentBody, username) => {
+  const comment = { username: username, body: commentBody };
+  console.log(comment, review_id);
+  return instance
+    .post(`/reviews/${review_id}/comments`, comment)
+    .then(({ data }) => {
+      return data;
+    });
+};
